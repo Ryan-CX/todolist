@@ -1,5 +1,6 @@
 const express = require('express');
-
+require('dotenv').config();
+let db_str = process.env.db_str;
 const app = express();
 
 const PORT = 3000;
@@ -11,7 +12,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(express.json());
 
-mongoose.connect('mongodb://localhost:27017/todolistDB', {
+mongoose.connect(db_str, {
 	useNewUrlParser: true,
 	useUnifiedTopology: true,
 	useFindAndModify: false,
