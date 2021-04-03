@@ -80,11 +80,11 @@ app.post('/delete', (req, res) => {
 	});
 });
 
-app.post('/work', (req, res) => {
-	let item = req.body.newItem;
-	workItems.push(item);
-	res.redirect('/work');
-});
+// app.post('/work', (req, res) => {
+// 	let item = req.body.newItem;   //target the input field and push the input into the array.
+// 	workItems.push(item);
+// 	res.redirect('/work');
+// });
 
 app.listen(process.env.PORT || PORT, () => {
 	console.log(`Server running on port ${PORT}`);
