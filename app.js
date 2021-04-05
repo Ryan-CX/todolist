@@ -41,8 +41,10 @@ const defaultItems = [item1, item2, item3];
 
 app.get('/', (req, res) => {
 	Item.find({}, (error, foundItems) => {
+		//find all the items in the collection.
 		if (foundItems.length === 0) {
 			Item.insertMany(defaultItems, (e) => {
+				// if nothing in the collection, add 3 default items in the array.
 				if (e) {
 					console.log(e);
 				} else {
@@ -66,8 +68,9 @@ app.post('/', (req, res) => {
 });
 
 app.post('/delete', (req, res) => {
-	const checkedItemId = req.body.checkbox;
+	const checkedItemId = req.body.checkbox; //target the checkbox element.
 	Item.findByIdAndRemove(checkedItemId, (err) => {
+		//delete that selected element.
 		if (!err) {
 			console.log('successfully deleted.');
 			res.redirect('/');
